@@ -1,4 +1,4 @@
-// Loads the SruthiScribe engine straight out of index.html.
+// Loads the SwaraScribe engine straight out of index.html.
 //
 // The engine lives in a <script> block in the page and already ends with
 // `module.exports = API`, so it is loadable as-is -- we just have to cut it out
@@ -15,7 +15,7 @@ const HTML = path.join(ROOT, 'index.html');
 
 // The engine block is the one opened by the banner comment. We take from the
 // <script> that precedes that banner through its matching </script>.
-const START_MARK = 'SruthiScribe engine';
+const START_MARK = 'SwaraScribe engine';
 
 function extractSource(html) {
   const mark = html.indexOf(START_MARK);

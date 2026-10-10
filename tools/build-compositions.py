@@ -34,7 +34,7 @@ import urllib.parse
 import urllib.request
 
 API = "https://en.wikipedia.org/w/api.php"
-UA = "SruthiScribe/1.0 (carnatic library build)"
+UA = "SwaraScribe/1.0 (carnatic library build)"
 
 SOURCES = [
     {"page": "List of compositions by Tyagaraja",

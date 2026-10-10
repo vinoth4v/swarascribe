@@ -1,5 +1,5 @@
 <!doctype html>
-<!-- SruthiScribe — Carnatic transcription in the browser.
+<!-- SwaraScribe — Carnatic transcription in the browser.
      © 2026 Vinoth Kannan. All rights reserved. See LICENSE.
      Library entries carry their own source and licence, shown per entry. -->
 <html lang="en">
@@ -7,16 +7,16 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="color-scheme" content="light">
-<title>SruthiScribe — sing it, read it back as svaras · the Carnatic library</title>
+<title>SwaraScribe — sing it, read it back as svaras · the Carnatic library</title>
 <meta name="description" content="Record or upload a Carnatic vocal phrase and read it back as svara notation. Set your sruthi and ragam; everything runs in your browser.">
-<meta property="og:title" content="SruthiScribe">
+<meta property="og:title" content="SwaraScribe">
 <meta property="og:description" content="Sing a phrase and read it back as svara notation — and browse 939 ragams and hundreds of compositions in one place. Runs entirely in your browser.">
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#F6F3EC">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%23F6F3EC'/%3E%3Ccircle cx='16' cy='17.5' r='11.5' fill='none' stroke='%23C9A227' stroke-width='1.6' stroke-linecap='round' stroke-dasharray='50 22' transform='rotate(-58 16 17.5)'/%3E%3Cpath d='M6.5 23.5 C10 23.5, 10.5 12.5, 14 12.5 S17.5 20, 20.5 20 S23.5 9.5, 26 9.5' fill='none' stroke='%23B3401F' stroke-width='2.1' stroke-linecap='round' stroke-linejoin='round'/%3E%3Ccircle cx='26' cy='4.4' r='2.05' fill='%238A6D2F'/%3E%3C/svg%3E">
 <style>
 /* ============================================================================
-   SruthiScribe design system — "manuscript studio"
+   SwaraScribe design system — "manuscript studio"
    A warm, light editorial surface (the manuscript) around one dark instrument
    panel (the pitch stave). Two first-class views: Scribe and Library.
    ==========================================================================*/
@@ -734,7 +734,7 @@ details[open] summary::after{content:'−'}
         <!-- tara-sthayi dot: the octave mark this app renders above a svara -->
         <circle cx="26" cy="4.4" r="2.05" fill="#8A6D2F"/>
       </svg>
-      <span>Sruthi<em>Scribe</em></span>
+      <span>Swara<em>Scribe</em></span>
       <span class="beta" title="Under active development">Beta</span>
     </div>
     <nav class="appnav" role="tablist" aria-label="App views">
@@ -884,7 +884,7 @@ details[open] summary::after{content:'−'}
 <section id="hero">
   <div class="hero-kicker"><svg class="ic"><use href="#i-note"/></svg>Carnatic notation studio</div>
   <h1 class="hero-line">Sing a phrase.<br>Read it back <strong>as svaras.</strong></h1>
-  <p class="hero-sub">SruthiScribe tracks the pitch of your voice and decodes it through the
+  <p class="hero-sub">SwaraScribe tracks the pitch of your voice and decodes it through the
      grammar of your ragam — into svara notation with tala bars, sahitya, and a PDF you can
      practise from. Free, in your browser; nothing you record leaves your device.</p>
   <div class="hero-doors">
@@ -1401,7 +1401,7 @@ details[open] summary::after{content:'−'}
 </div>
 
 <footer class="sitefoot">
-  <div class="fnote">SruthiScribe is in beta. A wrong reading, a missing composition, a ragam
+  <div class="fnote">SwaraScribe is in beta. A wrong reading, a missing composition, a ragam
     that isn’t in the library — all of it is useful to hear about.</div>
   <div class="fnote">Write to <a class="fmail" href="mailto:vinoth.kannan.eu@gmail.com"
     >vinoth.kannan.eu@gmail.com</a></div>
@@ -1422,7 +1422,7 @@ details[open] summary::after{content:'−'}
 
 <script>
 /* ============================================================
-   SruthiScribe engine — pitch tracking + ragam-aware svara decoding
+   SwaraScribe engine — pitch tracking + ragam-aware svara decoding
    Pure functions, no DOM. Testable in node.
    ============================================================ */
 (function (root) {
@@ -3772,7 +3772,7 @@ function pdfPages(){
       if (title || composer){
         g.fillStyle='#1A1A1A';
         g.font = 'bold ' + (7.8*scale)+'px '+SERIF;
-        g.fillText(title || 'SruthiScribe reading', mx, y0);
+        g.fillText(title || 'SwaraScribe reading', mx, y0);
         y0 += 6.4*scale;
         if (composer){
           g.font = 'italic ' + (4.4*scale)+'px '+SERIF; g.fillStyle='#555';
@@ -3781,7 +3781,7 @@ function pdfPages(){
       } else {
         g.fillStyle='#1A1A1A';
         g.font = 'bold ' + (7.5*scale)+'px '+SERIF;
-        g.fillText('SruthiScribe \u2014 ' + S.ragam.name, mx, y0); y0 += 6.5*scale;
+        g.fillText('SwaraScribe \u2014 ' + S.ragam.name, mx, y0); y0 += 6.5*scale;
       }
       var metaFont = (4.2*scale)+'px Helvetica, Arial, sans-serif';
       g.font = metaFont; g.fillStyle='#444';
@@ -3942,7 +3942,7 @@ $('#pdfBtn').addEventListener('click', function(){
     var blob = buildPdfBlob(pages);
     var a = document.createElement('a');
     a.href = URL.createObjectURL(blob);
-    a.download = 'sruthiscribe-' + S.ragam.name.toLowerCase().replace(/[^a-z0-9]+/g,'-') + '.pdf';
+    a.download = 'swarascribe-' + S.ragam.name.toLowerCase().replace(/[^a-z0-9]+/g,'-') + '.pdf';
     document.body.appendChild(a); a.click(); a.remove();
     setTimeout(function(){ URL.revokeObjectURL(a.href); }, 4000);
     setStatus('PDF saved');
@@ -3983,7 +3983,7 @@ $('#jsonBtn').addEventListener('click', function(){
   };
   var b = new Blob([JSON.stringify(out,null,2)], {type:'application/json'});
   var a = document.createElement('a');
-  a.href = URL.createObjectURL(b); a.download = 'sruthiscribe.json'; a.click();
+  a.href = URL.createObjectURL(b); a.download = 'swarascribe.json'; a.click();
   setTimeout(function(){ URL.revokeObjectURL(a.href); }, 2000);
 });
 
@@ -4337,7 +4337,7 @@ $('#cSubmit').addEventListener('click', function(){
     return { s:n.label, o:n.oct, d:Math.max(1, Math.round(n.dur/0.2)) }; }) }] };
   var payload = {
     contributor: ($('#cName').value.trim() || 'anonymous').slice(0,60),
-    note: 'Contributed from a SruthiScribe reading' +
+    note: 'Contributed from a SwaraScribe reading' +
           (notes.some(function(n){return n.edited;}) ? ' with manual corrections' : ''),
     sruthi_hz: +S.tonicHz.toFixed(2),
     notation: notation,
@@ -5978,7 +5978,7 @@ function downloadLibraryPdf(k, latest, btn){
     S.readingTitle = k.title;
     S.readingComposer = [k.composer, k.ragam, k.tala].filter(Boolean).join(' · ');
     S.ragam = { name: k.ragam || '—' };
-    S.pdfExtra = ' · SruthiScribe library' +
+    S.pdfExtra = ' · SwaraScribe library' +
       (latest.contributor ? ' · ' + latest.contributor : '');
     S.pdfLyrics = (k.lyrics || []).filter(function(l){ return l.text; })
       .map(function(l){ return { name: l.name, words: String(l.text).split(/\s+/) }; });

@@ -1,8 +1,8 @@
-# SruthiScribe
+# SwaraScribe
 
 Converts a Carnatic vocal recording into readable svara notation, in the browser.
 
-Live: https://vinoth4v.github.io/sruthiscribe/ · https://sruthiscribe.vercel.app/
+Live: https://vinoth4v.github.io/swarascribe/ · https://swarascribe.vercel.app/
 
 ---
 
@@ -260,15 +260,15 @@ just that feature. After editing `engine.js`, re-embed:
 ```bash
 python3 - <<'PY'
 work = open('index.html').read(); eng = open('engine.js').read()
-start = "/* ============================================================\n   SruthiScribe engine"
+start = "/* ============================================================\n   SwaraScribe engine"
 end = "})(typeof globalThis !== 'undefined' ? globalThis : this);"
 si = work.index(start); ei = work.index(end, si) + len(end)
 sj = eng.index(start);  ej = eng.index(end, sj) + len(end)
 open('index.html','w').write(work[:si] + eng[sj:ej] + work[ei:])
 PY
 # then verify — this MUST print 0:
-diff <(sed -n '/SruthiScribe engine/,/root.SwaraEngine = API/p' index.html) \
-     <(sed -n '/SruthiScribe engine/,/root.SwaraEngine = API/p' engine.js) | wc -l
+diff <(sed -n '/SwaraScribe engine/,/root.SwaraEngine = API/p' index.html) \
+     <(sed -n '/SwaraScribe engine/,/root.SwaraEngine = API/p' engine.js) | wc -l
 ```
 
 **2. Features you assume are missing are often already built.**

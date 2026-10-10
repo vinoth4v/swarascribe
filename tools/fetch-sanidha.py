@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Mirror the parts of the Sanidha dataset that SruthiScribe can learn from.
+"""Mirror the parts of the Sanidha dataset that SwaraScribe can learn from.
 
     python3 tools/fetch-sanidha.py --out ~/datasets/sanidha
     python3 tools/fetch-sanidha.py --out ~/datasets/sanidha --all-stems

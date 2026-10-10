@@ -104,7 +104,7 @@ def fetch(path):
     if os.path.exists(path):
         return path
     os.makedirs(os.path.dirname(path), exist_ok=True)
-    req = urllib.request.Request(ZENODO, headers={"User-Agent": "sruthiscribe/1.0"})
+    req = urllib.request.Request(ZENODO, headers={"User-Agent": "swarascribe/1.0"})
     with urllib.request.urlopen(req, timeout=60) as r, open(path + ".part", "wb") as f:
         f.write(r.read())
     os.replace(path + ".part", path)

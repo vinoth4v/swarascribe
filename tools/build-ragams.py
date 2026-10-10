@@ -36,7 +36,7 @@ import urllib.request
 
 PAGE = "List of Janya ragas"
 API = "https://en.wikipedia.org/w/api.php"
-UA = "SruthiScribe/1.0 (carnatic library build; https://github.com/)"
+UA = "SwaraScribe/1.0 (carnatic library build; https://github.com/)"
 
 # Semitones above Sa. Ri/Ga and Dha/Ni overlap by design: R2 and G1 are the same
 # pitch, named differently depending on which the ragam uses.
@@ -315,7 +315,7 @@ def merge(ragams, index_html):
                 "janya_type": None, "is_vakra": False, "varja_svaras": [],
                 "svaras": [[PITCH[s], s] for s in a["svaras"]],
                 "alt_names": [], "in_engine": True, "wiki_url": None,
-                "source": "sruthiscribe:engine-table", "notes": None,
+                "source": "swarascribe:engine-table", "notes": None,
             })
             continue
 
@@ -329,7 +329,7 @@ def merge(ragams, index_html):
         r["alt_names"] = sorted({r["name"], name} - {name})
         r["name"] = name
         r["in_engine"] = True
-        r["source"] = "wikipedia:List_of_Janya_ragas + sruthiscribe:engine-table"
+        r["source"] = "wikipedia:List_of_Janya_ragas + swarascribe:engine-table"
         r["arohana"], r["avarohana"] = a["arohana"], a["avarohana"]
         r["svaras"] = [[PITCH[s], s] for s in a["svaras"]]
         if r["melakarta"] is None:
@@ -360,7 +360,7 @@ def check(ragams, index_html):
     print("matched to the app  : %d of %d" % (matched, len(app)))
     print("added from the app  : %s"
           % ", ".join(r["name"] for r in merged
-                      if r["source"] == "sruthiscribe:engine-table") or "none")
+                      if r["source"] == "swarascribe:engine-table") or "none")
     print("disagreements kept  : %d" % len(notes))
     for n in notes:
         print("   " + n)
@@ -405,7 +405,7 @@ def to_sql(ragams, chunk=500):
     for i in range(0, len(ragams), chunk):
         lines = []
         for r in ragams[i:i + chunk]:
-            r = dict(r, source=("app" if str(r.get("source", "")).startswith("sruthiscribe")
+            r = dict(r, source=("app" if str(r.get("source", "")).startswith("swarascribe")
                                 else "wiki"))
             lines.append("|".join(cell(r.get(f)) for f in fields))
         picks = []
@@ -442,7 +442,7 @@ update ragams r set
   license      = case when r.source = 'wiki' then 'CC BY-SA 4.0 (Wikipedia)' end,
   source       = case when r.source = 'wiki'
                  then 'wikipedia:List_of_Janya_ragas'
-                 else 'sruthiscribe:engine-table' end
+                 else 'swarascribe:engine-table' end
 from (select melakarta, name from ragams where melakarta is not null) m
 where m.melakarta = r.parent_mela_num and r.source in ('wiki', 'app');""")
     return out

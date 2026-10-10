@@ -1,5 +1,5 @@
 /* ============================================================
-   SruthiScribe engine — pitch tracking + ragam-aware svara decoding
+   SwaraScribe engine — pitch tracking + ragam-aware svara decoding
    Pure functions, no DOM. Testable in node.
    ============================================================ */
 (function (root) {

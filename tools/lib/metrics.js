@@ -1,4 +1,4 @@
-// Accuracy metrics for a SruthiScribe reading against dataset ground truth.
+// Accuracy metrics for a SwaraScribe reading against dataset ground truth.
 //
 // The melody numbers are the standard mir_eval definitions (Salamon et al.),
 // so they are directly comparable with published Carnatic pitch-tracking

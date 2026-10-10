@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
-"""Build the SruthiScribe pitch deck.
+"""Build the SwaraScribe pitch deck.
 
-    /tmp/pptxenv/bin/python tools/make-deck.py SruthiScribe.pptx
+    /tmp/pptxenv/bin/python tools/make-deck.py SwaraScribe.pptx
 
 Every number in the deck comes from something that can be re-run -- the
 accuracy figures from tools/eval.js, the library counts from the database, the
@@ -93,7 +93,7 @@ def title_slide(prs):
     slab.fill.solid(); slab.fill.fore_color.rgb = ACCENT
     slab.line.fill.background(); slab.shadow.inherit = False
     text(s, Inches(1.1), Inches(2.3), Inches(11), Inches(1.1),
-         [("SruthiScribe", 60, INK, True, DISPLAY)])
+         [("SwaraScribe", 60, INK, True, DISPLAY)])
     text(s, Inches(1.1), Inches(3.35), Inches(10.5), Inches(0.9),
          [("Sing it. Read it back as svaras.", 26, ACCENT, False, DISPLAY)])
     text(s, Inches(1.1), Inches(4.25), Inches(10.2), Inches(1.4),
@@ -418,6 +418,6 @@ def build(path):
 
 
 if __name__ == "__main__":
-    out = sys.argv[1] if len(sys.argv) > 1 else "SruthiScribe.pptx"
+    out = sys.argv[1] if len(sys.argv) > 1 else "SwaraScribe.pptx"
     n = build(out)
     print("wrote %s (%d slides)" % (out, n))

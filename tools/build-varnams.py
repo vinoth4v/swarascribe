@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Turn the CompMusic varnam notations into SruthiScribe composition records.
+"""Turn the CompMusic varnam notations into SwaraScribe composition records.
 
     python3 tools/fetch-varnams.py --out tools/data/varnams
     python3 tools/build-varnams.py --out tools/data/varnams.json

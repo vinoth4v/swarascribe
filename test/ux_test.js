@@ -42,7 +42,7 @@ function boot(){
   const heroParas = hero.querySelectorAll(':scope > p');
   chk('hero shows exactly one always-visible line, not a wall of paragraphs',
       heroParas.length === 1, heroParas.length);
-  chk('the one line names the app and what it does', /SruthiScribe/.test(heroParas[0].textContent) &&
+  chk('the one line names the app and what it does', /SwaraScribe/.test(heroParas[0].textContent) &&
       /svara/i.test(heroParas[0].textContent));
   const more = r.d.querySelector('#heroMore');
   chk('the fuller explanation exists behind a disclosure, not deleted', !!more &&
