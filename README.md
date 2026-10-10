@@ -386,3 +386,10 @@ Do not "add" these without reading why they're absent:
 is public to read, not licensed for reuse. Library entries carry their own
 source and licence per entry; the 1904 Sangita Sampradaya Pradarsini notation
 is public domain.
+
+## Self-hosting
+
+The `Dockerfile` serves the app and its `/api` functions with a small Node server (`deploy/server.mjs`).
+Set `SUPABASE_URL` and `SUPABASE_ANON_KEY` at build time to point the app at your own Supabase; without them the
+build keeps the address in `index.html`. Production runs this way on Coolify at https://swarascribe.vinothkannan.de,
+which redeploys on every push to `main`.
